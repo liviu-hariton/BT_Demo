@@ -1,0 +1,44 @@
+# BT_Demo App
+# Author: Liviu Hariton <liviu.hariton@gmail.com>
+
+AddDefaultCharset utf-8
+
+# Prevent directory listings
+Options -Indexes
+
+# Disallow CGI scripts within the document root
+Options -ExecCGI
+
+# Disallow files type access from outside
+<FilesMatch "(\.ini)">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    # Enable rewriting requested URLs
+    RewriteEngine On
+
+    # Redirect (permanent) from HTTP to HTTPS
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Set the basepath of the rewrite rules
+    RewriteBase /
+
+    # Deny access to hidden files
+    RewriteCond %{SCRIPT_FILENAME} -d [OR]
+    RewriteCond %{SCRIPT_FILENAME} -f
+    RewriteRule "(^|/)\." - [F]
+
+    # Redirects everything to index.php unless the requested file exists on the server
+    # or the requested URI matches one of the specified paths
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !^/(api|xhr|admin)/ [NC]
+    RewriteRule . index.php [L]
+
+    # Main app rewriting rules
+    RewriteRule ^admin/ admin.php
+    RewriteRule ^api/ api.php
+    RewriteRule ^xhr/ xhr.php
+</IfModule>

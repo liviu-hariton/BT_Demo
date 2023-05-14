@@ -1,0 +1,138 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <!-- BEGIN success -->
+    <div class="alert alert-success mt-3">
+        <span data-feather="check-circle"></span> Datele au fost procesate cu success!
+    </div>
+    <!-- END success -->
+
+    <!-- BEGIN filetypeerror -->
+    <div class="alert alert-warning mt-3">
+        <span data-feather="alert-triangle"></span> Furnizeaza un fisier de tip JSON!
+    </div>
+    <!-- END filetypeerror -->
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Configurari</h1>
+    </div>
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="overall-tab" data-bs-toggle="tab" data-bs-target="#overall" type="button" role="tab" aria-controls="home" aria-selected="true">Generale</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="content-tab" data-bs-toggle="tab" data-bs-target="#content" type="button" role="tab" aria-controls="profile" aria-selected="false">Continut</button>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active pt-3" id="overall" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <form method="POST" action="" name="f-overall" id="f-overall">
+                <input type="hidden" name="form" id="form-overall" value="1" />
+
+                <div class="mb-3">
+                    <div class="row mb-3">
+                        <label for="front_template" class="col-sm-2 col-form-label">Layout Front-end:</label>
+                        <div class="col-sm-3">
+                            <select class="form-select" name="front_template" id="front_template" aria-label="Layout front-end">
+                                <!-- BEGIN front_template -->
+                                <option value="{front_template.NAME}" {front_template.SEL}>{front_template.NAME}</option>
+                                <!-- END front_template -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="admin_template" class="col-sm-2 col-form-label">Layout Admin:</label>
+                        <div class="col-sm-3">
+                            <select class="form-select" name="admin_template" id="admin_template" aria-label="Layout Admin">
+                                <!-- BEGIN admin_template -->
+                                <option value="{admin_template.NAME}" {admin_template.SEL}>{admin_template.NAME}</option>
+                                <!-- END admin_template -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="nyt_endpoint" class="col-sm-2 col-form-label">Elemente pe pagina (Admin):</label>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control" id="per_page" name="per_page" value="{_PER_PAGE}">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="nyt_endpoint" class="col-sm-2 col-form-label">Elemente pe pagina (Front):</label>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control" id="per_page_front" name="per_page_front" value="{_PER_PAGE_FRONT}">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" name="save_form_data" id="save_form_data_overall" class="btn btn-primary">Salveaza</button>
+            </form>
+        </div>
+
+        <div class="tab-pane pt-3" id="content" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <div class="alert alert-info">
+                <span data-feather="info"></span> Continutul este sincronizat automat, la inceputul fiecarei ore.
+            </div>
+
+            <form method="POST" action="" name="f-content" id="f-content" enctype="multipart/form-data">
+                <input type="hidden" name="form" id="form-content" value="2" />
+
+                <div class="mb-3">
+                    <div class="row mb-3">
+                        <label for="content_source_local" class="col-sm-2 col-form-label">Sursa preluare continut:</label>
+                        <div class="col-sm-3 pt-2">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="content_source" id="content_source_local" value="local" {SOURCE_LOCAL_CHK} onclick="$('#local-data-container').show();$('#remote-data-container').hide();">
+                                <label class="form-check-label" for="content_source_local">fisier JSON local</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="content_source" id="content_source_remote" value="remote" {SOURCE_REMOTE_CHK} onclick="$('#local-data-container').hide();$('#remote-data-container').show();">
+                                <label class="form-check-label" for="content_source_remote">remote &middot; NYT APIs</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="local-data-container" {SOURCE_LOCAL_CSS}>
+                        <div class="row mb-3" {FILE_SELECT_CSS}>
+                            <label for="content_file_select" class="col-sm-2 col-form-label">Alege fisierul:</label>
+                            <div class="col-sm-4">
+                                <select class="form-select" name="content_file_select" id="content_file_select" aria-label="Alege fisierul" onchange="_bt_demo.loadNewFile(this.value)">
+                                    <!-- BEGIN content_file_select -->
+                                    <option value="{content_file_select.FILE}" {content_file_select.SEL}>{content_file_select.FILE} ({content_file_select.SIZE} &middot; {content_file_select.CREATED})</option>
+                                    <!-- END content_file_select -->
+                                    <option value="0">&gt;&gt; incarca alt fisier</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3" id="file-upload" {FILE_UPLOAD_CSS}>
+                            <label for="json_file" class="col-sm-2 col-form-label">Incarca fisierul:</label>
+                            <div class="col-sm-3">
+                                <input class="form-control" type="file" id="json_file" name="json_file">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="remote-data-container" {SOURCE_REMOTE_CSS}>
+                        <div class="row mb-3">
+                            <label for="nyt_endpoint" class="col-sm-2 col-form-label">NYT API End-point:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="nyt_endpoint" name="nyt_endpoint" value="{_NYT_ENDPOINT}">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="nyt_apikey" class="col-sm-2 col-form-label">NYT API Key:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="nyt_apikey" name="nyt_apikey" value="{_NYT_APIKEY}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" id="process_content_now" name="process_content_now">
+                        <label class="form-check-label" for="process_content_now">proceseaza datele acum <span class="text-warning">(<span data-feather="alert-triangle"></span> procesul poate dura destul de mult, in functie de numarul de elemente din fisier)</span></label>
+                    </div>
+                </div>
+                <button type="submit" name="save_form_data" id="save_form_data_content" class="btn btn-primary">Salveaza</button>
+            </form>
+        </div>
+    </div>
+
+</main>

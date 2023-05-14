@@ -1,0 +1,32 @@
+<!-- BEGIN item -->
+<tr>
+    <td class="text-center">{item.ID}</td>
+    <td class="text-center">
+        <img src="/media/images/news/{item.IMAGE}" alt="{item.TITLE}" width="100" />
+    </td>
+    <td>
+        <h6>{item.TITLE}</h6>
+        {item.LEAD_PARAGRAPH}
+
+        <ul class="mt-2">
+            <li>NYT ID: {item.NYT_ID}</li>
+            <li>NYT link: {item.NYT_URL}</li>
+        </ul>
+    </td>
+    <td>{item.SOURCE}</td>
+    <td><a href="{item._URL}admin/authors/view?id={item.AUTHOR_ID}">{item.FIRSTNAME} {item.MIDDLENAME} {item.LASTNAME}</a></td>
+    <td>
+        <a href="{item._URL}admin/sections/view?id={item.SECTION_ID}">{item.SECTION_NAME}</a>
+
+        <!-- BEGIN subsection -->
+        / {item.subsection.SUBSECTION_NAME}
+        <!-- END subsection -->
+    </td>
+    <td class="text-right">
+        <span title="{item.PUBLISHED_FULL}">{item.PUBLISHED} <span data-feather="clock"></span></span>
+    </td>
+    <td class="text-right">
+        <span title="{item.CREATED_FULL}">{item.CREATED} <span data-feather="clock"></span></span>
+    </td>
+</tr>
+<!-- END item -->

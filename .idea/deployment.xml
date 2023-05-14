@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="btdemo.liviuhariton.com" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;*.hprof;*.pyc;*.pdf;*.txt;*.doc;*.docx;*.log;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.psd;*.tiff;*.svg;*.sql;*.csv;*.xlx;*.xlxs;*.zip;*.ttf;*.otf;*.map;*.dat;*.json;*.woff;*.woff2;*.scss" confirmBeforeDeletion="false" autoUploadExternalChanges="true">
+    <option name="confirmBeforeDeletion" value="false" />
+    <serverData>
+      <paths name="btdemo.liviuhariton.com">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/.well-known" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.well-known" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
+  </component>
+</project>

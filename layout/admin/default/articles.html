@@ -1,0 +1,44 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2"><span class="badge text-bg-info text-white">{TOTAL}</span> Articole</h1>
+    </div>
+
+    <!-- BEGIN pagination -->
+    <ul class="pagination pagination-sm">
+        {pagination.PAGINATION}
+    </ul>
+    <!-- END pagination -->
+
+    <div class="table-responsive">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-light">
+                <tr>
+                    <th scope="col" class="text-center">ID</th>
+                    <th scope="col" colspan="2">Articol</th>
+                    <th scope="col">Sursa</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Sectiune</th>
+                    <th scope="col" class="text-right">Publicat</th>
+                    <th scope="col" class="text-right">Sincronizat</th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                {ITEMS_LIST}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- BEGIN no_items -->
+    <div class="alert alert-info">
+        Deocamdata, nu exista elemente pentru afisare
+    </div>
+    <!-- END no_items -->
+
+    <!-- BEGIN pagination -->
+    <ul class="pagination pagination-sm">
+        {pagination.PAGINATION}
+    </ul>
+    <!-- END pagination -->
+</main>

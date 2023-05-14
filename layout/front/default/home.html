@@ -1,0 +1,39 @@
+<main class="container">
+    <div class="row p-4 p-md-5 mb-4 rounded text-bg-dark">
+        <div class="col-md-7 px-0">
+            <h1 class="display-4 fst-italic">{LATEST_TITLE}</h1>
+            <p class="lead my-3">{LATEST_LEAD_PARAGRAPH}</p>
+            <p class="mb-0">
+                Published by <a href="{_URL}{LATEST_AUTHOR_SLUG}/a" class="text-white fw-bold">{LATEST_AUTHOR}</a>
+                in <a href="{_URL}{LATEST_SECTION_SLUG}/c" class="text-white fw-bold">{LATEST_SECTION}</a>
+            </p>
+        </div>
+        <div class="col-md-5 text-center">
+            <img src="/media/images/news/{LATEST_IMAGE}" class="img-fluid" alt="{LATEST_TITLE}" />
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <!-- BEGIN item -->
+        <div class="col-md-6">
+            <div class="item-image" style="background: url('/media/images/news/{item.IMAGE}') center center no-repeat;background-size: cover;"></div>
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <a href="{_URL}{item.SECTION_SLUG}/c" class="d-inline-block mb-2 text-success fw-bold">{item.SECTION_NAME}</a>
+                    <h3 class="mb-0">{item.TITLE}</h3>
+                    <div class="mb-1 text-body-secondary"><span data-feather="clock"></span> {item.PUBLISHED_FULL}</div>
+                    <p class="card-text mb-auto">{item.LEAD_PARAGRAPH}</p>
+                    <a href="{_URL}{item.AUTHOR_SLUG}/a" class="text-danger">publicat de {item.AUTHOR_FIRSTNAME} {item.AUTHOR_MIDDLENAME} {item.AUTHOR_LASTNAME}</a>
+                </div>
+            </div>
+        </div>
+        <!-- END item -->
+    </div>
+
+    <!-- BEGIN pagination -->
+    <ul class="pagination">
+        {pagination.PAGINATION}
+    </ul>
+    <!-- END pagination -->
+
+</main>

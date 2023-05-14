@@ -1,0 +1,46 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <!-- BEGIN notfound -->
+    <div class="alert alert-warning mt-3">
+        <span data-feather="alert-triangle"></span> Resursa nu este disponibila!
+    </div>
+    <!-- END notfound -->
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2"><span class="badge text-bg-info text-white">{TOTAL}</span> Sectiuni</h1>
+    </div>
+
+    <!-- BEGIN pagination -->
+    <ul class="pagination pagination-sm">
+        {pagination.PAGINATION}
+    </ul>
+    <!-- END pagination -->
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-sm">
+            <thead>
+            <tr>
+                <th scope="col" class="text-center">ID</th>
+                <th scope="col">Denumire</th>
+                <th scope="col" class="text-center">Subsectiuni</th>
+                <th scope="col" class="text-center">Articole</th>
+                <th scope="col" class="text-center">...</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {ITEMS_LIST}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- BEGIN no_items -->
+    <div class="alert alert-info">
+        Deocamdata, nu exista elemente pentru afisare
+    </div>
+    <!-- END no_items -->
+
+    <!-- BEGIN pagination -->
+    <ul class="pagination pagination-sm">
+        {pagination.PAGINATION}
+    </ul>
+    <!-- END pagination -->
+</main>

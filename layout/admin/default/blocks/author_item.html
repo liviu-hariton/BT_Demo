@@ -1,0 +1,12 @@
+<!-- BEGIN item -->
+<tr>
+    <td class="text-center">{item.ID}</td>
+    <td>{item.FIRSTNAME}</td>
+    <td>{item.MIDDLENAME}</td>
+    <td>{item.LASTNAME}</td>
+    <td class="text-center"><span class="badge rounded-pill text-bg-dark">{item.ARTICLES_COUNT}</span></td>
+    <td class="text-center">
+        <a href="{item._URL}admin/authors/view?id={item.ID}" class="btn btn-sm btn-secondary" title="Vezi articolele"><span data-feather="book-open"></span></a>
+    </td>
+</tr>
+<!-- END item -->
