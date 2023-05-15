@@ -129,7 +129,7 @@ class BT_Demo_API {
 
     /**
      * Get all available articles published on a specific date
-     * @param string $date Date format: dd/mm/yyyy
+     * @param string $date Date format: dd.mm.yyyy
      */
     public function getDateArticles(string $date): bool|string|null
     {
