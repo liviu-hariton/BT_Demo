@@ -350,8 +350,7 @@ Live demo:
 Exemplu răspuns:
 
 ![Shape Description automatically generated with medium
-confidence](./docs/images/media/image14.png){width="7.678472222222222in"
-height="1.1208333333333333in"}
+confidence](./docs/images/media/image14.png)
 
 **/authors/getbyslug/**
 
