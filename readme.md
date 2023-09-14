@@ -547,7 +547,7 @@ Tab-ul "*Continut*"
     urmează a fi procesate, procesul poate dura
 
     -   Am setat un CronJob pe server care sincronizează conținutul o dată pe zi, la ora 08:00
-        -   0 \8 \* \* \* /usr/local/bin/php
+        -   0 8 \* \* \* /usr/local/bin/php
             /btdemo.liviuhariton.com/cron/fetch.php
 
 ## Front -- consumare conținut via API
