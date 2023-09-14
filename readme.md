@@ -3,7 +3,7 @@
 	Autor: Liviu Hariton <liviu.hariton@gmail.com>
 	Date: 15.05.2023
 
-[Cerința inițială este disponibilă aici](https://github.com/liviu-hariton/BT_Demo/blob/main/docs/cerinta/cerinta.md).
+[Cerința inițială este disponibilă aici](https://github.com/liviu-hariton/BT_Demo/blob/main/docs/cerinta.md).
 
 ### Cuprins:
 
